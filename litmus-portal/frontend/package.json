@@ -120,5 +120,10 @@
     "lint-staged": "^10.2.6",
     "prettier": "^2.0.5",
     "typescript": "^3.9.9"
+  },
+  "overrides": {
+    "depcheck": {
+      "@babel/parser": "7.16.4"
+    }
   }
 }
