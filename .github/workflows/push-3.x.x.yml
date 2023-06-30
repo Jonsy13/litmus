@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: env_artifact
-          path: litmus-portal/env-vars
+          path: chaoscenter/env-vars
 
   docker-build-and-push-graphql-server:
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: env_artifact
-          path: litmus-portal
+          path: chaoscenter
 
       - name: Set up Docker Buildx
         id: buildx
@@ -96,7 +96,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: env_artifact
-          path: litmus-portal
+          path: chaoscenter
 
       - name: Set up Docker Buildx
         id: buildx
@@ -134,7 +134,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: env_artifact
-          path: litmus-portal
+          path: chaoscenter
 
       - name: Set up Docker Buildx
         id: buildx
