@@ -21,13 +21,13 @@ type KubeGVRRequest struct {
 	Resource string `json:"resource"`
 }
 
-//KubeObject consists of all the namespaces and its related K8S object details
+// KubeObject consists of all the namespaces and its related K8S object details
 type KubeObject struct {
 	Namespace string       `json:"namespace"`
 	Data      []ObjectData `json:"data"`
 }
 
-//ObjectData consists of Kubernetes Objects related details
+// ObjectData consists of Kubernetes Objects related details
 type ObjectData struct {
 	Name   string            `json:"name"`
 	Kind   string            `json:"kind"`

@@ -38,7 +38,7 @@ var (
 	ClusterID      = os.Getenv("CLUSTER_ID")
 )
 
-//WorkflowEventWatcher initializes the Argo Workflow event watcher
+// WorkflowEventWatcher initializes the Argo Workflow event watcher
 func WorkflowEventWatcher(stopCh chan struct{}, stream chan types.WorkflowEvent, clusterData map[string]string) {
 	startTime, err := strconv.Atoi(clusterData["START_TIME"])
 	if err != nil {
@@ -74,7 +74,7 @@ func WorkflowEventWatcher(stopCh chan struct{}, stream chan types.WorkflowEvent,
 	go startWatchWorkflow(stopCh, informer, stream, int64(startTime))
 }
 
-//startWatchWorkflow handles the different events events - add, update and delete
+// startWatchWorkflow handles the different events events - add, update and delete
 func startWatchWorkflow(stopCh <-chan struct{}, s cache.SharedIndexInformer, stream chan types.WorkflowEvent, startTime int64) {
 	handlers := cache.ResourceEventHandlerFuncs{
 		AddFunc: func(obj interface{}) {
@@ -103,7 +103,7 @@ func startWatchWorkflow(stopCh <-chan struct{}, s cache.SharedIndexInformer, str
 	s.Run(stopCh)
 }
 
-//WorkflowEventHandler responsible for extracting the required data from the event and streaming
+// WorkflowEventHandler responsible for extracting the required data from the event and streaming
 func WorkflowEventHandler(workflowObj *v1alpha1.Workflow, eventType string, startTime int64) (types.WorkflowEvent, error) {
 	if workflowObj.Labels["workflow_id"] == "" {
 		logrus.WithFields(map[string]interface{}{
@@ -191,7 +191,7 @@ func WorkflowEventHandler(workflowObj *v1alpha1.Workflow, eventType string, star
 	return workflow, nil
 }
 
-//SendWorkflowUpdates generates graphql mutation to send events updates to graphql server
+// SendWorkflowUpdates generates graphql mutation to send events updates to graphql server
 func SendWorkflowUpdates(clusterData map[string]string, event types.WorkflowEvent) (string, error) {
 	if wfEvent, ok := eventMap[event.UID]; ok {
 		for key, node := range wfEvent.Nodes {

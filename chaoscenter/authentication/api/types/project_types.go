@@ -2,7 +2,7 @@ package types
 
 import "litmus/litmus-portal/authentication/pkg/entities"
 
-// Project contains the required fields to be returned by GET APIs
+// Project contains the required fields to be returned by GET APIssd
 type Project struct {
 	entities.Audit `bson:",inline"`
 	ID             string    `bson:"_id"`

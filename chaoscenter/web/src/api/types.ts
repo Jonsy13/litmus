@@ -13,7 +13,7 @@ import type { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import type { SWRConfiguration, SWRResponse } from 'swr';
 import type { Identifiers } from './entities';
 
-// GraphQL types
+// GraphQL typessd
 export type GqlAPIQueryRequest<TData, TVariables, Request = OperationVariables> = Identifiers &
   Request & {
     options?: QueryFunctionOptions<TData, TVariables>;

@@ -12,7 +12,7 @@ import (
 
 var KubeConfig *string
 
-// getKubeConfig setup the config for access cluster resource
+// getKubeConfig setup the config for access cluster resourcewsdes
 func GetKubeConfig() (*rest.Config, error) {
 	// Use in-cluster config if kubeconfig path is not specified
 	if *KubeConfig == "" {

@@ -75,7 +75,7 @@ func getChaosData(nodeStatus v1alpha13.NodeStatus, engineName, engineNS string, 
 	return cd, nil
 }
 
-//CheckChaosData util function, checks if event is a chaos-exp event, if so -  extract the chaos data
+// CheckChaosData util function, checks if event is a chaos-exp event, if so -  extract the chaos data
 func CheckChaosData(nodeStatus v1alpha13.NodeStatus, workflowNS string, chaosClient *v1alpha12.LitmuschaosV1alpha1Client) (string, *types.ChaosData, error) {
 	nodeType := string(nodeStatus.Type)
 	var cd *types.ChaosData = nil
@@ -118,7 +118,7 @@ func getNameFromLog(log string) string {
 	return name[1]
 }
 
-//StrConvTime converts unix timestamp to string
+// StrConvTime converts unix timestamp to string
 func StrConvTime(time int64) string {
 	if time < 0 {
 		return ""
@@ -150,7 +150,7 @@ func GetWorkflowObj(uid string) (*v1alpha1.Workflow, error) {
 	return nil, nil
 }
 
-//GenerateWorkflowPayload generate graphql mutation payload for events event
+// GenerateWorkflowPayload generate graphql mutation payload for events event
 func GenerateWorkflowPayload(cid, accessKey, version, completed string, wfEvent types.WorkflowEvent) ([]byte, error) {
 	clusterID := `{clusterID: \"` + cid + `\", version: \"` + version + `\", accessKey: \"` + accessKey + `\"}`
 

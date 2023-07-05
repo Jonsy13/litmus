@@ -22,7 +22,7 @@ var (
 	AgentScope     = os.Getenv("AGENT_SCOPE")
 )
 
-//GetKubernetesObjects is used to get the Kubernetes Object details according to the request type
+// GetKubernetesObjects is used to get the Kubernetes Object details according to the request type
 func GetKubernetesObjects(request types.KubeObjRequest) ([]*types.KubeObject, error) {
 	conf, err := GetKubeConfig()
 	if err != nil {
@@ -123,7 +123,7 @@ func getPodsFromWorkloads(resources []types.Workload, k8sClient *kubernetes.Clie
 	return ObjData, nil
 }
 
-//GetObjectDataByNamespace uses dynamic client to fetch Kubernetes Objects data.
+// GetObjectDataByNamespace uses dynamic client to fetch Kubernetes Objects data.
 func GetObjectDataByNamespace(namespace string, dynamicClient dynamic.Interface, gvrList []schema.GroupVersionResource) ([]types.ObjectData, error) {
 	var kubeObjects []types.ObjectData
 	for _, gvr := range gvrList {
@@ -159,7 +159,7 @@ func GenerateKubeObject(cid string, accessKey, version string, kubeObjectRequest
 	return payload, nil
 }
 
-//SendKubeObjects generates graphql mutation to send kubernetes objects data to graphql server
+// SendKubeObjects generates graphql mutation to send kubernetes objects data to graphql server
 func SendKubeObjects(clusterData map[string]string, kubeObjectRequest types.KubeObjRequest) error {
 	// generate graphql payload
 	payload, err := GenerateKubeObject(clusterData["CLUSTER_ID"], clusterData["ACCESS_KEY"], clusterData["VERSION"], kubeObjectRequest)

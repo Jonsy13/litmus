@@ -52,7 +52,7 @@ func GetLogs(podName, namespace, container string) (string, error) {
 	return str, nil
 }
 
-//CreatePodLog creates pod log for normal pods and chaos-engine pods
+// CreatePodLog creates pod log for normal pods and chaos-engine pods
 func CreatePodLog(podLog types.PodLogRequest) (types.PodLog, error) {
 	logDetails := types.PodLog{}
 	mainLog, err := GetLogs(podLog.PodName, podLog.PodNamespace, "main")
@@ -94,7 +94,7 @@ func CreatePodLog(podLog types.PodLogRequest) (types.PodLog, error) {
 	return logDetails, nil
 }
 
-//SendPodLogs generates graphql mutation to send events updates to graphql server
+// SendPodLogs generates graphql mutation to send events updates to graphql server
 func SendPodLogs(clusterData map[string]string, podLog types.PodLogRequest) {
 	// generate graphql payload
 	payload, err := GenerateLogPayload(clusterData["CLUSTER_ID"], clusterData["ACCESS_KEY"], clusterData["VERSION"], podLog)
