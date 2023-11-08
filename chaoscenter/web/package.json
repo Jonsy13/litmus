@@ -98,7 +98,7 @@
     "marked": "4.0",
     "masonry-layout": "^4.2.2",
     "moment": "^2.25.3",
-    "monaco-editor": "^0.41.0",
+    "monaco-editor": "^0.44.0",
     "monaco-yaml": "^5.0.0",
     "normalize.css": "^8.0.1",
     "prompts": "^2.4.2",
